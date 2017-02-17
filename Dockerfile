@@ -7,7 +7,7 @@ ENV statsd_version master
 
 WORKDIR /statsd
 
-RUN apk --update --no-cache add git=2.11.0-r0 nodejs=${nodejs_version} && \
+RUN apk --update --no-cache add git nodejs=${nodejs_version} && \
   git clone --depth 1 --branch ${statsd_version} https://github.com/etsy/statsd.git . && \
   npm install --no-optional && \
   npm install statsd-librato-backend@${librato_version} && \
